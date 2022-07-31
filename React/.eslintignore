@@ -1,0 +1,6 @@
+.eslintrc.js
+node_modules
+jest.config.js
+dist
+coverage/
+babel.config.js
