@@ -80,13 +80,18 @@ npm run build
 
 ## Running the app locally
 
-To simply run the app:
+- To simply run the app:
 
-```sh
-npm server
-```
+  ```sh
+  npm server
+  ```
+  This builds the UI and runs the server.
 
-This builds the UI and runs the server.
+- Or to run the server and watch the files for changes:
+
+  ```sh
+  npm run watch
+  ```
 
 Then test the application:
 
