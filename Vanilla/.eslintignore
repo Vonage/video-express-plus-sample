@@ -4,3 +4,4 @@ jest.config.js
 dist
 coverage/
 babel.config.js
+videoexpressplus/

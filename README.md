@@ -52,20 +52,27 @@ npm install
 
 ## Configuring and building the app
 
-1. Copy the `.env.example` file to `.env` and update the values
+1. `cd` to the sample directory you will be using
 
 ```sh
-cp .env.example .env
+cd Vanilla
 ```
 
-Set the following values:
+2. Copy the `.env.example` file to an `.env` file in the sample directory you will be using,
+   and update the values:
 
-- API_KEY -- Your OpenTok API key.
-- API_SECRET -- Your OpenTok API secret.
-- WHITEBOARD_API_ENDPOINT -- Your Vonage Whiteboard API endpoint. (This is
-  required only if your app will use the whiteboard feature.)
+  ```sh
+  cp .env.example Vanilla/.env
+  ```
 
-2. Build the project:
+  Set the following values:
+
+  - API_KEY -- Your OpenTok API key.
+  - API_SECRET -- Your OpenTok API secret.
+  - WHITEBOARD_API_ENDPOINT -- Your Vonage Whiteboard API endpoint. (This is
+    required only if your app will use the whiteboard feature.)
+
+3. Build the project:
 
 ```sh
 npm run build
@@ -73,19 +80,13 @@ npm run build
 
 ## Running the app locally
 
-- To simply run the app:
+To simply run the app:
 
-  ```sh
-  npm start
-  ```
+```sh
+npm server
+```
 
-  This builds the UI and runs the server.
-
-- Or to run the server and watch the files for changes:
-
-  ```sh
-  npm run start-dev
-  ```
+This builds the UI and runs the server.
 
 Then test the application:
 
