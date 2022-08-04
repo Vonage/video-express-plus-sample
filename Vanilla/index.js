@@ -1,7 +1,7 @@
-const dotenv = require("dotenv");
-const express = require("express");
-const enforce = require("express-sslify");
-const { RoomManager } = require("@vonage/video-express-plus-server");
+const dotenv = require('dotenv');
+const express = require('express');
+const enforce = require('express-sslify');
+const { RoomManager } = require('@vonage/video-express-plus-server');
 
 const port = process.env.PORT || 3000;
 
@@ -10,7 +10,7 @@ console.log(dotenv.config());
 const app = express();
 const roomManager = new RoomManager(
   process.env.APPLICATION_ID,
-  process.env.PRIVATE_KEY
+  process.env.PRIVATE_KEY,
 );
 
 if (process.env.NODE_ENV === 'production') {
