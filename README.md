@@ -94,10 +94,25 @@ cd Vanilla
 
   Set the following values:
 
-  - API_KEY -- Your OpenTok API key.
-  - API_SECRET -- Your OpenTok API secret.
-  - WHITEBOARD_API_ENDPOINT -- Your Vonage Whiteboard API endpoint. (This is
-    required only if your app will use the whiteboard feature.)
+  - APPLICATION_ID -- Your Vonage application ID.
+
+  - PRIVATE_KEY -- A private key for your Vonage application. Note that multiline
+    strings in the .env file are supported, as follows:
+
+    ```"-----BEGIN PRIVATE KEY-----
+    MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCahnKaw+QFI+FN
+    ....
+    ....
+    2ge/Lqb2t869vcdsfqc7Wg==
+    -----END PRIVATE KEY-----
+    "
+    ```
+
+You can set environment variables, instead of setting values in the .env file:
+
+```sh
+export 
+```
 
 3. Build the project:
 
@@ -196,12 +211,22 @@ the main room:
 
 ## Deploying the application
 
-You can set environment variables, instead of setting values in the .env file mentioned above.
-
 OpenTok.js (used by the client application) loads the background blur video filter from
 an external source hosted at cloudfront.net. If your website enforces a content security policy
 and your app uses the background blur filter, you will need to have your content security policy
-allow scripts loaded from `https://d3opqjmqzxf057.cloudfront.net`.
+allow scripts loaded from `https://d3opqjmqzxf057.cloudfront.net`:
+
+```
+Content-Security-Policy: script-src blob: ;
+``````
+
+The background blur filter uses a worker, so you also need to whitelist the `blob:` URI scheme
+in one of the following CSP directives: `worker-src` (which doesn’t work with Safari), `child-src`,
+`script-src`, or `default-src`. As in the following:
+
+```
+Content-Security-Policy: child-src blob: ;
+``````
 
 ## Understanding the code
 
