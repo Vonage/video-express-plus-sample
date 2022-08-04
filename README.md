@@ -16,7 +16,7 @@ This initial version of the README file includes info on using the Vanilla web a
 
 To run this project locally you need the following:
 
-- Nodejs (v14+)
+- Nodejs (v16.13.2)
 
 - npm (v8+)
 
