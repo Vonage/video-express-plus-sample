@@ -12,13 +12,33 @@ This repo includes three sample applications:
 
 This initial version of the README file includes info on using the Vanilla web app only.
 
-## Dependencies
+## Requirements
 
-To run this project locally you need the following dependencies:
+To run this project locally you need the following:
 
 - Nodejs (v14+)
 
 - npm (v8+)
+
+You will need to obtain a npmjs token to install the private video-express-plus
+Node module. Contact Vonage to obtain this.
+
+You will also need a Vonage application ID and a private key for that Vonage application:
+
+1. Go to https://dashboard.nexmo.com/ and log into your Vonage account.
+
+2. Click *Applications* in the left-hand menu.
+
+3. Click the application you want to use with your site that uses Vonage Video Express.
+
+   Or click the *Create a new application* link at the top of the page).
+
+4. Copy the application ID and save for future reference.
+ 
+5. Click the *Edit* button. In the Edit app page, click the *Generate public and private key*
+   button.
+
+6. Check the downloads directory for the private.key file.
 
 ## Installing dependencies
 
@@ -44,7 +64,14 @@ nvm use
 cd Vanilla
 ```
 
-5. Install dependencies:
+5. Add an environment variable with the npmjs token provided to you
+   (see the Requirements section above):
+
+   ```sh
+   export NPM_TOKEN=npm_QX0T.....vCX   # Replace with your token string
+   ```
+
+6. Install dependencies:
 
 ```sh
 npm install
@@ -243,6 +270,7 @@ const roomController = new VideoExpressPlus.RoomController({
   container: 'controller',
   participantId: 'fDk1dzM0yUWyCRMl0QO3yg',
 });
+roomController.init();
 ```
 
 See the following sections for details on the API.
@@ -403,8 +431,15 @@ declare namespace VideoExpressPlus {
       callbackUrl: string,
       container?: string | HTMLElement,
       managedLayoutOptions?: ManagedLayoutOptions // from Video Express
-      // iceConfig?: IceConfigOptions // from Video Express, but not supported in Vonage applications
-    ): void;
+    }): void;
+
+  /*
+    Initializes the UI and starts Video Express Plus in the client.
+    A host joins the main room. A viewer joins the waiting room or
+    (if a waiting room was specified when initiating the RoomManager
+    on the server) the main room.
+  */
+  init(): void;
 
     /**
       Register a function to handle asynchronous errors.
