@@ -23,13 +23,11 @@
     <title>VideoExpress Plus Soln</title>
   </head>
   <body>
-
     <!-- *** Step 2 *** -->
     <!-- Make sure you have a div with container id : <VVE+ContainerID> -->
     <!-- Video and Features render in the container here  -->
     <!-- VVE+ Container Start -->
-    <div id="ve-plus-container-id">
-    </div>
+    <div id="ve-plus-container-id"></div>
     <!-- VVE+ Container End -->
 
     <!-- *** Step 3 *** -->
@@ -37,11 +35,11 @@
     <script src="https://static.opentok.com/v1/js/video-express.js"></script>
     <script src="js/call.js"></script>
     <script type="text/javascript">
-      const roomController = new VideoExpressPlus.RoomController(
-        've-plus-container-id', //<VVE+ContainerID>
-        '',
-        '/api/vve/',
-      );
+      const roomController = new VideoExpressPlus.RoomController({
+        container: "ve-plus-container-id", //<VVE+ContainerID>
+        participantId: "",
+        callbackUrl: "/api/vve/",
+      });
       roomController.init(); // initialzation
     </script>
     <!-- Above is the snippet for  -->
