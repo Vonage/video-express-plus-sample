@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --production=false && parcel build *.html --no-cache --no-minify",
+    "build": "npm install --production=false && parcel build *.html --no-cache --no-minify --no-content-hash",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
     "server": "node index.js",
