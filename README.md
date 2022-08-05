@@ -12,13 +12,33 @@ This repo includes three sample applications:
 
 This initial version of the README file includes info on using the Vanilla web app only.
 
-## Dependencies
+## Requirements
 
-To run this project locally you need the following dependencies:
+To run this project locally you need the following:
 
-- Nodejs (v14+)
+- Nodejs (v16.13.2)
 
 - npm (v8+)
+
+You will need to obtain a npmjs token to install the private video-express-plus
+Node module. Contact Vonage to obtain this.
+
+You will also need a Vonage application ID and a private key for that Vonage application:
+
+1. Go to https://dashboard.nexmo.com/ and log into your Vonage account.
+
+2. Click *Applications* in the left-hand menu.
+
+3. Click the application you want to use with your site that uses Vonage Video Express.
+
+   Or click the *Create a new application* link at the top of the page).
+
+4. Copy the application ID and save for future reference.
+ 
+5. Click the *Edit* button. In the Edit app page, click the *Generate public and private key*
+   button.
+
+6. Check the downloads directory for the private.key file.
 
 ## Installing dependencies
 
@@ -44,7 +64,14 @@ nvm use
 cd Vanilla
 ```
 
-5. Install dependencies:
+5. Add an environment variable with the npmjs token provided to you
+   (see the Requirements section above):
+
+   ```sh
+   export NPM_TOKEN=npm_QX0T.....vCX   # Replace with your token string
+   ```
+
+6. Install dependencies:
 
 ```sh
 npm install
@@ -52,20 +79,42 @@ npm install
 
 ## Configuring and building the app
 
-1. Copy the `.env.example` file to `.env` and update the values
+1. `cd` to the sample directory you will be using
 
 ```sh
-cp .env.example .env
+cd Vanilla
 ```
 
-Set the following values:
+2. Copy the `.env.example` file to an `.env` file in the sample directory you will be using,
+   and update the values:
 
-- API_KEY -- Your OpenTok API key.
-- API_SECRET -- Your OpenTok API secret.
-- WHITEBOARD_API_ENDPOINT -- Your Vonage Whiteboard API endpoint. (This is
-  required only if your app will use the whiteboard feature.)
+  ```sh
+  cp .env.example Vanilla/.env
+  ```
 
-2. Build the project:
+  Set the following values:
+
+  - APPLICATION_ID -- Your Vonage application ID.
+
+  - PRIVATE_KEY -- A private key for your Vonage application. Note that multiline
+    strings in the .env file are supported, as follows:
+
+    ```"-----BEGIN PRIVATE KEY-----
+    MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCahnKaw+QFI+FN
+    ....
+    ....
+    2ge/Lqb2t869vcdsfqc7Wg==
+    -----END PRIVATE KEY-----
+    "
+    ```
+
+You can set environment variables, instead of setting values in the .env file:
+
+```sh
+export 
+```
+
+3. Build the project:
 
 ```sh
 npm run build
@@ -76,15 +125,14 @@ npm run build
 - To simply run the app:
 
   ```sh
-  npm start
+  npm server
   ```
-
   This builds the UI and runs the server.
 
 - Or to run the server and watch the files for changes:
 
   ```sh
-  npm run start-dev
+  npm run watch
   ```
 
 Then test the application:
@@ -163,12 +211,22 @@ the main room:
 
 ## Deploying the application
 
-You can set environment variables, instead of setting values in the .env file mentioned above.
-
 OpenTok.js (used by the client application) loads the background blur video filter from
 an external source hosted at cloudfront.net. If your website enforces a content security policy
 and your app uses the background blur filter, you will need to have your content security policy
-allow scripts loaded from `https://d3opqjmqzxf057.cloudfront.net`.
+allow scripts loaded from `https://d3opqjmqzxf057.cloudfront.net`:
+
+```
+Content-Security-Policy: script-src blob: ;
+``````
+
+The background blur filter uses a worker, so you also need to whitelist the `blob:` URI scheme
+in one of the following CSP directives: `worker-src` (which doesn’t work with Safari), `child-src`,
+`script-src`, or `default-src`. As in the following:
+
+```
+Content-Security-Policy: child-src blob: ;
+``````
 
 ## Understanding the code
 
@@ -237,6 +295,7 @@ const roomController = new VideoExpressPlus.RoomController({
   container: 'controller',
   participantId: 'fDk1dzM0yUWyCRMl0QO3yg',
 });
+roomController.init();
 ```
 
 See the following sections for details on the API.
@@ -397,8 +456,15 @@ declare namespace VideoExpressPlus {
       callbackUrl: string,
       container?: string | HTMLElement,
       managedLayoutOptions?: ManagedLayoutOptions // from Video Express
-      // iceConfig?: IceConfigOptions // from Video Express, but not supported in Vonage applications
-    ): void;
+    }): void;
+
+  /*
+    Initializes the UI and starts Video Express Plus in the client.
+    A host joins the main room. A viewer joins the waiting room or
+    (if a waiting room was specified when initiating the RoomManager
+    on the server) the main room.
+  */
+  init(): void;
 
     /**
       Register a function to handle asynchronous errors.
