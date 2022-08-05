@@ -1,7 +1,7 @@
-const dotenv = require("dotenv");
-const express = require("express");
-const enforce = require("express-sslify");
-const { RoomManager } = require("@vonage/video-express-plus-server");
+const dotenv = require('dotenv');
+const express = require('express');
+const enforce = require('express-sslify');
+const { RoomManager } = require('@vonage/video-express-plus-server');
 
 const port = process.env.PORT || 3000;
 
@@ -11,10 +11,10 @@ const app = express();
 const roomManager = new RoomManager(
   process.env.APPLICATION_ID,
   process.env.PRIVATE_KEY,
-  { breakout: true, whiteboard: true, waiting: true }
+  { breakout: true, whiteboard: true, waiting: true },
 );
 
-if (process.env.NODE_ENV === "production") {
+if (process.env.NODE_ENV === 'production') {
   app.use(enforce.HTTPS({ trustProtoHeader: true }));
 }
 
@@ -22,16 +22,16 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static(`${__dirname}/dist`));
 
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(`${__dirname}/dist/index.html`);
 });
 
-app.get("/join/:room", (req, res) => {
+app.get('/join/:room', (req, res) => {
   res.sendFile(`${__dirname}/dist/call.html`);
 });
 
-app.post("/api/vve", (req, res) => {
-  res.setHeader("Content-Type", "application/json");
+app.post('/api/vve', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
   try {
     roomManager.handleClientEvent(req.body).then((response) => {
       res.status(200).send(response);

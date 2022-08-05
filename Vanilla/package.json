@@ -5,10 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm install --production=false && npm run rmdist && parcel build *.html --no-cache --no-minify",
+    "build": "npm install --production=false && parcel build *.html --no-cache --no-minify --no-content-hash",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "rmdist": "node -e \"try { require('fs').rmSync('./dist', { recursive: true }); } catch (err) {}\"",
     "server": "node index.js",
     "watch": "concurrently \"parcel watch *.html\" \"npm run server\""
   },

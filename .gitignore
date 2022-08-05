@@ -93,6 +93,8 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+!Vanilla/dist/vve-edu.js
+!Vanilla/dist/vve-edu.js.map
 
 # Gatsby files
 .cache/
