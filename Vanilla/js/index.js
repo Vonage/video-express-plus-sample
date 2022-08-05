@@ -1,3 +1,5 @@
+/* global OT */
+
 import { getDevices, PreviewPublisher } from '@vonage/video-express';
 import 'regenerator-runtime/runtime';
 
@@ -12,6 +14,8 @@ let publisherProperties;
 
 const audioSelector = document.getElementById('audio-source');
 const videoSelector = document.getElementById('video-source');
+const backgroundBlurCheckbox = document.getElementById('background-blur-checkbox');
+const backgroundBlurContainer = document.getElementById('background-blur-container');
 
 const getUrlParams = () => {
   const paramMap = {};
@@ -32,10 +36,10 @@ const getUrlParams = () => {
 const modifyVideo = async () => {
   localStorage.setItem('audioSourceId', audioSelector.value);
   localStorage.setItem('videoSourceId', videoSelector.value);
+  localStorage.setItem('backgroundBlur', backgroundBlurCheckbox.checked);
 
   if (previewPublisher) {
-    previewPublisher.setVideoDevice(videoSelector.value);
-    return previewPublisher.setAudioDevice(audioSelector.value);
+    previewPublisher.destroy();
   }
 
   previewPublisher = new PreviewPublisher('preview');
@@ -45,6 +49,10 @@ const modifyVideo = async () => {
     audioSource: audioSelector.value,
     videoSource: videoSelector.value,
   };
+
+  if (backgroundBlurCheckbox.checked) {
+    publisherProperties.videoFilter = { type: 'backgroundBlur' };
+  }
 
   return previewPublisher.previewMedia({
     targetElement: 'preview',
@@ -78,6 +86,10 @@ const init = async () => {
   if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
     console.log('enumerateDevices() not supported.');
     return;
+  }
+
+  if (OT.hasMediaProcessorSupport()) {
+    backgroundBlurContainer.style.display = 'block';
   }
 
   const params = new URLSearchParams(window.location.search);
@@ -131,6 +143,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 audioSelector.addEventListener('change', modifyVideo);
 videoSelector.addEventListener('change', modifyVideo);
+backgroundBlurCheckbox.addEventListener('change', modifyVideo);
 
 loginInstructorButton.addEventListener('click', async () => {
   const urlParams = getUrlParams();
