@@ -5,12 +5,13 @@ const { RoomManager } = require("@vonage/video-express-plus-server");
 
 const port = process.env.PORT || 3000;
 
-console.log(dotenv.config());
+dotenv.config();
 
 const app = express();
 const roomManager = new RoomManager(
   process.env.APPLICATION_ID,
-  process.env.PRIVATE_KEY
+  process.env.PRIVATE_KEY,
+  { breakout: true, whiteboard: true, waiting: true }
 );
 
 if (process.env.NODE_ENV === "production") {

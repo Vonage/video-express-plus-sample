@@ -39,7 +39,7 @@
     "parcel-plugin-static-files-copy": "^2.6.0"
   },
   "dependencies": {
-    "@vonage/video-express-plus-server": "^1.0.2",
+    "@vonage/video-express-plus-server": "^1.0.4",
     "@vonage/video-express": "^1.3.1",
     "axios": "^0.25.0",
     "dotenv": "^16.0.1",
@@ -50,8 +50,8 @@
     "regenerator-runtime": "^0.13.9",
     "sample": "^0.0.2",
     "uuid": "^8.3.2",
-    "vve-breakout-ot": "^2.29.17",
-    "vve-text-chat-ot": "^2.29.4",
-    "vve-waiting": "2.29.23"
+    "vve-breakout-ot": "2.29.20",
+    "vve-text-chat-ot": "2.29.4",
+    "vve-waiting": "2.29.24"
   }
 }
