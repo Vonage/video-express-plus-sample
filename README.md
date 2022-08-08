@@ -23,53 +23,80 @@ To run this project locally you need the following dependencies:
 ## Installing dependencies
 
 1. You need to be logged into your npmjs account to install the private
-   `@vonage/video-express-plus` module. Use `npm whoami` and `npm login`.
+   `@vonage/video-express-plus` module. Use `npm whoami` and `npm login`
+   or use a provided token with module access. 
+   
+   ```sh
+      export NPM_TOKEN=npm_QXFx.......D7snjuedjg
+   ```
 
 2. Clone the repository.
 
-```sh
-git clone https://github.com/jeffswartz/video-express-plus-sample.git
-cd video-express-plus-sample
-```
+   ```sh
+   git clone https://github.com/jeffswartz/video-express-plus-sample.git
+   cd video-express-plus-sample
+   ```
 
 3. Use the correct version of Node (v16):
 
-```sh
-nvm use
-```
+   ```sh
+   nvm use
+   ```
 
 4. cd to the Vanilla directory:
 
-```sh
-cd Vanilla
-```
+   ```sh
+   cd Vanilla
+   ```
 
 5. Install dependencies:
 
-```sh
-npm install
-```
+   ```sh
+   npm install
+   ```
 
 ## Configuring and building the app
 
 1. Copy the `.env.example` file to `.env` and update the values
 
-```sh
-cp .env.example .env
-```
+   ```sh
+   cp .env.example .env
+   ```
 
 Set the following values:
 
-- API_KEY -- Your OpenTok API key.
-- API_SECRET -- Your OpenTok API secret.
+- APPLICATION_ID=Your Vonage application ID.
+- PRIVATE_KEY=A private key for your Vonage application. 
+Note that multiline strings in the .env file are supported, as follows:
+
+   ```sh
+   PRIVATE_KEY="-----BEGIN PRIVATE KEY-----
+   MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCahnKaw+QFI+FN
+   ....
+   ....
+   7unwufDEPq93unaF7@0hf+23uM2ge/Lqb2t869vcdsfqc7Wg==
+   -----END PRIVATE KEY-----
+   "
+
+   ```
 - WHITEBOARD_API_ENDPOINT -- Your Vonage Whiteboard API endpoint. (This is
   required only if your app will use the whiteboard feature.)
+  
+  Alternatively you can set environmental variables for these values:
+  
+   ```sh
+   export APPLICATION_ID="Your Vonage application ID"
+   ```
+
+   ```sh
+   export PRIVATE_KEY="Your private key"
+   ```
 
 2. Build the project:
 
-```sh
-npm run build
-```
+   ```sh
+   npm run build
+   ```
 
 ## Running the app locally
 
