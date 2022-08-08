@@ -19,7 +19,7 @@
     />
     <!-- *** Step 1 *** -->
     <!-- Load VVE+ client sdk in head section of html -->
-    <script src="http://localhost:3000/vve-edu.js"></script>
+
     <title>VideoExpress Plus Soln</title>
   </head>
   <body>
@@ -32,16 +32,7 @@
 
     <!-- *** Step 3 *** -->
     <!-- Scripts to load Video Express and instantiate VVE+-->
-    <script src="https://static.opentok.com/v1/js/video-express.js"></script>
     <script src="js/call.js"></script>
-    <script type="text/javascript">
-      const roomController = new VideoExpressPlus.RoomController({
-        container: "ve-plus-container-id", //<VVE+ContainerID>
-        participantId: "",
-        callbackUrl: "/api/vve/",
-      });
-      roomController.init(); // initialzation
-    </script>
     <!-- Above is the snippet for  -->
     <!-- Initialization of Video Express Plus Controller  -->
   </body>

@@ -1,3 +1,8 @@
-import 'vve-breakout-ot/vve-breakout';
-import 'vve-text-chat-ot/vve-text-chat';
-import 'vve-waiting/vve-waiting';
+import { RoomController } from "@vonage/video-express-plus-client";
+
+const roomController = new RoomController({
+  container: "ve-plus-container-id", //<VVE+ContainerID>
+  participantId: "",
+  callbackUrl: "/api/vve/",
+});
+roomController.init(); // initialzation
