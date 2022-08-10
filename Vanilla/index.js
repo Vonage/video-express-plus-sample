@@ -38,7 +38,7 @@ app.post("/api/vve", (req, res) => {
 });
 
 app.post("/api/get-participant", (req, res) => {
-  // res.setHeader('Content-Type', 'application/json');
+  res.setHeader("Content-Type", "application/json");
   try {
     const participant = roomManager.addParticipant(
       req.body.name,

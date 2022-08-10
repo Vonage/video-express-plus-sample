@@ -60,8 +60,8 @@ const joinCall = async (role) => {
         role,
       }),
     });
-    console.log(response);
-    const { participantId } = await response;
+    const data = response.json();
+    const { participantId } = await data;
     window.location.href = `/join/room?participantId=${participantId}`;
   } catch (err) {
     console.log(err);
