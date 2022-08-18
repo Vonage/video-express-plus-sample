@@ -111,7 +111,8 @@ cd Vanilla
 You can set environment variables, instead of setting values in the .env file:
 
 ```sh
-export 
+export APPLICATION_ID=1234-5679-...-7890
+export PRIVATE_KEY=$(cat /path-to-file/private.key)
 ```
 
 3. Build the project:
