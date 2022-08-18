@@ -41,9 +41,6 @@ To run this project locally you need the following:
 
 * npm (v8+)
 
-You will need to obtain a npmjs token to install the private video-express-plus
-Node module. Contact Vonage (mailto:video.api.beta@vonage.com) to obtain this.
-
 When you participate in the Video Express Plus Early Access program, Vonage will
 enable the Vonage Video API and whiteboard for your account.
 
