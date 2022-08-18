@@ -2,7 +2,7 @@
 
 A sample app for Vonage Video Express Plus.
 
-** Note: ** Vonage Video Express Plus is currently in part of an Early Access program.
+**Note:** Vonage Video Express Plus is currently in part of an Early Access program.
 Please contact Vonage (mailto:video.api.beta@vonage.com) for more information.
 
 Vonage Video Express Plus is a solution for creating web applications that use the
@@ -23,13 +23,13 @@ rooms. The Video Express Plus client communicates with the server to maintain th
 all rooms and participants. You do not need to use a Video API server SDK (such as the
 Vonage Video API Node SDK) to create and manage Video API session IDs and tokens. The
 Vonage Video Plus server SDK automatically generates Video API sessions and tokens
-for each room and participant. 
+for each room and participant.
 
 This repo includes three sample applications:
 
 * Vanilla -- A web application, using Express.
 
-* Angular -- An AngularJS app. 
+* Angular -- An AngularJS app.
 
 * React -- A React app.
 
@@ -37,9 +37,9 @@ This repo includes three sample applications:
 
 To run this project locally you need the following:
 
-- Nodejs (v16.13.2)
+* Nodejs (v16.13.2)
 
-- npm (v8+)
+* npm (v8+)
 
 You will need to obtain a npmjs token to install the private video-express-plus
 Node module. Contact Vonage (mailto:video.api.beta@vonage.com) to obtain this.
@@ -50,7 +50,7 @@ enable the Vonage Video API and whiteboard for your account.
 You will need a Vonage application ID and a private key for a Vonage application
 in your account:
 
-1. Go to https://dashboard.nexmo.com/ and log into your Vonage account.
+1. Go to <https://dashboard.nexmo.com/> and log into your Vonage account.
 
 2. Click *Applications* in the left-hand menu.
 
@@ -59,7 +59,7 @@ in your account:
    Or click the *Create a new application* link at the top of the page).
 
 4. Copy the application ID and save for future reference.
- 
+
 5. Click the *Edit* button. In the Edit app page, click the *Generate public and private key*
    button.
 
@@ -125,9 +125,9 @@ This initial version of the README file includes info on using the Vanilla web a
 
   Set the following values:
 
-  - APPLICATION_ID -- Your Vonage application ID.
+* APPLICATION_ID -- Your Vonage application ID.
 
-  - PRIVATE_KEY -- A private key for your Vonage application. Note that multiline
+* PRIVATE_KEY -- A private key for your Vonage application. Note that multiline
     strings in the .env file are supported, as follows:
 
     ```"-----BEGIN PRIVATE KEY-----
@@ -154,14 +154,15 @@ This initial version of the README file includes info on using the Vanilla web a
 
 ## Running the app locally
 
-- To simply run the app:
+* To simply run the app:
 
   ```sh
   npm server
   ```
+
   This builds the UI and runs the server.
 
-- Or to run the server and watch the files for changes:
+* Or to run the server and watch the files for changes:
 
   ```sh
   npm run watch
@@ -184,7 +185,7 @@ Then test the application:
 4. Again, select the camera and microphone you want to use. (If you have a
    different camera attached, select it so that you will be able to
    differentiate between the two test users in the classroom.) Then enter a
-   different name (than you used before) and click the _Join Meeting_ button.
+   different name (than you used before) and click the *Join Meeting* button.
 
    For this test app, including the `?inviteRoomId=test` query string has you
    join the meeting as a viewer (not a host). A viewer joins the call page is
@@ -195,32 +196,32 @@ have the host let the viewer into the main room:
 
 1. Open the browser tab for the host.
 
-2. Click the _Show Add-ons_ button,
+2. Click the *Show Add-ons* button,
 
-3. In the Add-ons panel, click _Waiting Room_.
+3. In the Add-ons panel, click *Waiting Room*.
 
 4. Mute the speaker on your computer. Otherwise, when the host lets the viewer
    into the main room there will be audio feedback. (This is only required when
    testing locally with two tabs on the same computer.)
 
-5. In the Waiting Room panel, find the name of the viewer and click the _Admit_
+5. In the Waiting Room panel, find the name of the viewer and click the *Admit*
    button.
 
    The viewer is now in the main room, along with their audio-video stream.
 
 Next you will create a break-out room:
 
-1. Close the _Waiting Room_ panel.
+1. Close the *Waiting Room* panel.
 
-2. In the Add-ons panel, click _Create Breakout_.
+2. In the Add-ons panel, click *Create Breakout*.
 
 3. In the Create Breakout panel, select 1 as the number of rooms, leave the
-   timer set to 5 minutes, leave the _Divide students manually_ option set, and
-   then click _Create Rooms_, at the bottom of the panel.
+   timer set to 5 minutes, leave the *Divide students manually* option set, and
+   then click *Create Rooms*, at the bottom of the panel.
 
 4. Click the + icon at the top of the panel, click the checkbox to the left of
    the viewers name. Then select the breakout room from the drop-down menu
-   (there is only one breakout room). Then click the _Assign to breakout room_
+   (there is only one breakout room). Then click the *Assign to breakout room*
    link, at the bottom of the panel.
 
    The viewer is now in a separate breakout room. A breakout room is another
@@ -230,16 +231,16 @@ Next you will create a break-out room:
 The host can also close all rooms at any time and have all participants return
 to the main room:
 
-1. In the Add-ons panel, click _Create Breakout_.
+1. In the Add-ons panel, click *Create Breakout*.
 
-2. Click the _Close all rooms_ link at the bottom of the panel.
+2. Click the *Close all rooms* link at the bottom of the panel.
 
 The host can also use the whiteboard to share drawings with all participants in
 the main room:
 
-1. In the browser tab for the host, click the _Show Add-ons_ button,
+1. In the browser tab for the host, click the *Show Add-ons* button,
 
-2. In the Add-ons panel, click _Whiteboard_.
+2. In the Add-ons panel, click *Whiteboard*.
 
 ## UI features
 
@@ -354,7 +355,7 @@ See the following sections for details on the API.
 
 ## Server-side API reference
 
-_Note:_ This document uses TypeScript definitions as a formality. It is not
+*Note:* This document uses TypeScript definitions as a formality. It is not
 required to use TypeScript to use the libraries.
 
 The public API in the server-side Node module is as follows:
@@ -479,7 +480,7 @@ export class RoomManager {
 Use the `VideoExpressPlus.RoomController()` to instantiate a client-side room
 controller.
 
-_Note:_ This document uses TypeScript definitions as a formality. It is not
+*Note:* This document uses TypeScript definitions as a formality. It is not
 required to use TypeScript to use the libraries.
 
 ```javascript
@@ -535,25 +536,25 @@ sessions). The server-side `RoomManager` and the client-side `RoomController`
 object both include `onError()` methods that let the developer handle
 asynchronous errors.
 
-#### Error.name property values for server-side RoomManager errors:
+#### Error.name property values for server-side RoomManager errors
 
-- `MessagingSessionCreationError` -- Error in creating the Video API session to
+* `MessagingSessionCreationError` -- Error in creating the Video API session to
   be used for messaging.
-- `MainRoomSessionCreationError` -- Error in creating the Video API session to
+* `MainRoomSessionCreationError` -- Error in creating the Video API session to
   be used for the main room.
-- `BreakoutRoomSessionCreationError` -- Error in creating the Video API session
+* `BreakoutRoomSessionCreationError` -- Error in creating the Video API session
   to be used for a breakout room.
-- `MessagingRoomSignalingError` -- Error in attempting to send a signal to a
+* `MessagingRoomSignalingError` -- Error in attempting to send a signal to a
   client. This may not be fatal. (The client may have disconnected from the
   network or closed their browser session.)
-- `TokenCreationError` -- Error in creating a Video API token.
-- `WhiteboardCreationError` -- Error in calling the Vonage whiteboard API.
+* `TokenCreationError` -- Error in creating a Video API token.
+* `WhiteboardCreationError` -- Error in calling the Vonage whiteboard API.
 
-#### Error.name property values for client-side RoomController errors:
+#### Error.name property values for client-side RoomController errors
 
-- `RoomManagerServerError` -- The server-side RoomManager should forward
+* `RoomManagerServerError` -- The server-side RoomManager should forward
   relevant errors to the client (so the client app knows that something is
   awry).
-- `RoomManagerCallbackError` -- Error in sending a request to the server
+* `RoomManagerCallbackError` -- Error in sending a request to the server
   callback URL.
-- `SignalingError` -- Error in sending a Video API signal to other clients.
+* `SignalingError` -- Error in sending a Video API signal to other clients.
