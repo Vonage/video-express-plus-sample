@@ -68,36 +68,34 @@ in your account:
 
 ## Installing dependencies
 
-1. You need to be logged into your npmjs account to install the private
-   `@vonage/video-express-plus` module. Use `npm whoami` and `npm login`.
 
-2. Clone the repository.
+1. Clone the repository.
 
 ```sh
 git clone https://github.com/jeffswartz/video-express-plus-sample.git
 cd video-express-plus-sample
 ```
 
-3. Use the correct version of Node (v16):
+2. Use the correct version of Node (v16):
 
   ```sh
   nvm use
   ```
 
-4. cd to the Vanilla directory:
+3. cd to the Vanilla directory:
 
   ```sh
   cd Vanilla
   ```
 
-5. Add an environment variable with the npmjs token provided to you
+4. Add an environment variable with the npmjs token provided to you
    (see the Requirements section above):
 
    ```sh
    export NPM_TOKEN=npm_QX0T.....vCX   # Replace with your token string
    ```
 
-6. Install dependencies:
+5. Install dependencies:
 
   ```sh
   npm install
@@ -154,7 +152,7 @@ This initial version of the README file includes info on using the Vanilla web a
 * To simply run the app:
 
   ```sh
-  npm server
+  npm run server
   ```
 
   This builds the UI and runs the server.
