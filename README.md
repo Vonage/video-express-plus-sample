@@ -2,6 +2,29 @@
 
 A sample app for Vonage Video Express Plus.
 
+** Note: ** Vonage Video Express Plus is currently in part of an Early Access program.
+Please contact Vonage (mailto:video.api.beta@vonage.com) for more information.
+
+Vonage Video Express Plus is a solution for creating web applications that use the
+[Vonage Video API](https://www.vonage.com/communications-apis/video/). Video Express Plus
+include a client-side SDK and server-side SDK that work together to let you easily
+enable multi-parti multi-room video applications.
+
+The server-side SDK is defined in the `@vonage/server` Node package, and the client SDK
+is defined in the `@vonage/client` Node package. You install the server-side SDK on your
+web server, and you load the client SDK in the web client page.
+
+The server SDK lets you add participants to your video application. The client
+SDK automatically builds the UI for hosts (who administer the video rooms)
+and viewers (participants) who join without administration privileges.
+
+A Video Express Plus application has one main room, and a host can add multiple breakout
+rooms. The Video Express Plus client communicates with the server to maintain the state of
+all rooms and participants. You do not need to use a Video API server SDK (such as the
+Vonage Video API Node SDK) to create and manage Video API session IDs and tokens. The
+Vonage Video Plus server SDK automatically generates Video API sessions and tokens
+for each room and participant. 
+
 This repo includes three sample applications:
 
 * Vanilla -- A web application, using Express.
@@ -9,8 +32,6 @@ This repo includes three sample applications:
 * Angular -- An AngularJS app. 
 
 * React -- A React app.
-
-This initial version of the README file includes info on using the Vanilla web app only.
 
 ## Requirements
 
@@ -21,9 +42,13 @@ To run this project locally you need the following:
 - npm (v8+)
 
 You will need to obtain a npmjs token to install the private video-express-plus
-Node module. Contact Vonage to obtain this.
+Node module. Contact Vonage (mailto:video.api.beta@vonage.com) to obtain this.
 
-You will also need a Vonage application ID and a private key for that Vonage application:
+When you participate in the Video Express Plus Early Access program, Vonage will
+enable the Vonage Video API and whiteboard for your account.
+
+You will need a Vonage application ID and a private key for a Vonage application
+in your account:
 
 1. Go to https://dashboard.nexmo.com/ and log into your Vonage account.
 
@@ -40,6 +65,10 @@ You will also need a Vonage application ID and a private key for that Vonage app
 
 6. Check the downloads directory for the private.key file.
 
+7. Scroll to the bottom of the page and enable *Video (beta)* for the application.
+
+8. Click the *Save changes* button.
+
 ## Installing dependencies
 
 1. You need to be logged into your npmjs account to install the private
@@ -54,15 +83,15 @@ cd video-express-plus-sample
 
 3. Use the correct version of Node (v16):
 
-```sh
-nvm use
-```
+  ```sh
+  nvm use
+  ```
 
 4. cd to the Vanilla directory:
 
-```sh
-cd Vanilla
-```
+  ```sh
+  cd Vanilla
+  ```
 
 5. Add an environment variable with the npmjs token provided to you
    (see the Requirements section above):
@@ -73,17 +102,19 @@ cd Vanilla
 
 6. Install dependencies:
 
-```sh
-npm install
-```
+  ```sh
+  npm install
+  ```
 
 ## Configuring and building the app
 
+This initial version of the README file includes info on using the Vanilla web app only.
+
 1. `cd` to the sample directory you will be using
 
-```sh
-cd Vanilla
-```
+  ```sh
+  cd Vanilla
+  ```
 
 2. Copy the `.env.example` file to an `.env` file in the sample directory you will be using,
    and update the values:
@@ -108,18 +139,18 @@ cd Vanilla
     "
     ```
 
-You can set environment variables, instead of setting values in the .env file:
+  You can set environment variables, instead of setting values in the .env file:
 
-```sh
-export APPLICATION_ID=1234-5679-...-7890
-export PRIVATE_KEY=$(cat /path-to-file/private.key)
-```
+  ```sh
+  export APPLICATION_ID=1234-5679-...-7890
+  export PRIVATE_KEY=$(cat /path-to-file/private.key)
+  ```
 
 3. Build the project:
 
-```sh
-npm run build
-```
+  ```sh
+  npm run build
+  ```
 
 ## Running the app locally
 
@@ -209,6 +240,26 @@ the main room:
 1. In the browser tab for the host, click the _Show Add-ons_ button,
 
 2. In the Add-ons panel, click _Whiteboard_.
+
+## UI features
+
+The bottom control panel of the client UI includes the following buttons:
+
+* Raise hand -- Click to raise your hand. Your raised hand will appear along with your video
+  in other participants' views of the room.
+
+* Screen-share (host only) -- A host can share the screen with all participants in the main room.
+
+* Microphone and camera toggle -- Any participant can toggle their microphone or camera on and off.
+
+* Add-ons (host-only) -- Display and hide the Add-ons control panel. This includes options that
+  lets the host create and manage break-out rooms, admit participants into the main room (from the
+  waiting room), and share a whiteboard with all participants in the main room.
+
+* Text chat -- Lets participants in the main room exchange text messages.
+
+* Participants (host only) -- Lets the host manage participants. The host can disable audio and video
+  for a specific viewer or for all viewers. And the host can eject a viewer from the session.
 
 ## Deploying the application
 
