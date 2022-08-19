@@ -72,7 +72,7 @@ in your account:
 1. Clone the repository.
 
 ```sh
-git clone https://github.com/jeffswartz/video-express-plus-sample.git
+git clone https://github.com/Vonage/video-express-plus-sample.git
 cd video-express-plus-sample
 ```
 
@@ -303,11 +303,11 @@ const roomManager = new RoomManager({
 });
 ```
 ```javascript
-const teacher = roomManager.getParticipant('jeff.swartz@vonage.com')
+const teacher = roomManager.getParticipant('joe.tester@example.com')
   || roomManager.addParticipant(
-  'Jeff', // name
+  'Joe', // name
   true, // isHost
-  'jeff.swartz@vonage.com', // id
+  'joe.tester@example.com', // id
 );
 ````
 
