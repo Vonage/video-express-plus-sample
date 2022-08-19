@@ -10,9 +10,9 @@ Vonage Video Express Plus is a solution for creating web applications that use t
 include a client-side SDK and server-side SDK that work together to let you easily
 enable multi-party multi-room video applications.
 
-The server-side SDK is defined in the `@vonage/server` Node package, and the client SDK
-is defined in the `@vonage/client` Node package. You install the server-side SDK on your
-web server, and you load the client SDK in the web client page.
+The server-side SDK is defined in the `@vonage/video-express-plus-server` npm package, and 
+the client SDK is defined in the `@vonage/video-express-plus-client` npm package. You install
+the server-side SDK on your web server, and you load the client SDK in the web client page.
 
 The server SDK lets you add participants to your video application. The client
 SDK automatically builds the UI for hosts (who administer the video rooms)
