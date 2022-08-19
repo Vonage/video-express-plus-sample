@@ -8,7 +8,7 @@ Please contact Vonage (mailto:video.api.beta@vonage.com) for more information.
 Vonage Video Express Plus is a solution for creating web applications that use the
 [Vonage Video API](https://www.vonage.com/communications-apis/video/). Video Express Plus
 include a client-side SDK and server-side SDK that work together to let you easily
-enable multi-parti multi-room video applications.
+enable multi-party multi-room video applications.
 
 The server-side SDK is defined in the `@vonage/server` Node package, and the client SDK
 is defined in the `@vonage/client` Node package. You install the server-side SDK on your
