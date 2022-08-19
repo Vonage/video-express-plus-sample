@@ -8,11 +8,11 @@ Please contact Vonage (mailto:video.api.beta@vonage.com) for more information.
 Vonage Video Express Plus is a solution for creating web applications that use the
 [Vonage Video API](https://www.vonage.com/communications-apis/video/). Video Express Plus
 include a client-side SDK and server-side SDK that work together to let you easily
-enable multi-parti multi-room video applications.
+enable multi-party multi-room video applications.
 
-The server-side SDK is defined in the `@vonage/server` Node package, and the client SDK
-is defined in the `@vonage/client` Node package. You install the server-side SDK on your
-web server, and you load the client SDK in the web client page.
+The server-side SDK is defined in the `@vonage/video-express-plus-server` npm package, and 
+the client SDK is defined in the `@vonage/video-express-plus-client` npm package. You install
+the server-side SDK on your web server, and you load the client SDK in the web client page.
 
 The server SDK lets you add participants to your video application. The client
 SDK automatically builds the UI for hosts (who administer the video rooms)
@@ -72,7 +72,7 @@ in your account:
 1. Clone the repository.
 
 ```sh
-git clone https://github.com/jeffswartz/video-express-plus-sample.git
+git clone https://github.com/Vonage/video-express-plus-sample.git
 cd video-express-plus-sample
 ```
 
@@ -303,11 +303,11 @@ const roomManager = new RoomManager({
 });
 ```
 ```javascript
-const teacher = roomManager.getParticipant('jeff.swartz@vonage.com')
+const teacher = roomManager.getParticipant('joe.tester@example.com')
   || roomManager.addParticipant(
-  'Jeff', // name
+  'Joe', // name
   true, // isHost
-  'jeff.swartz@vonage.com', // id
+  'joe.tester@example.com', // id
 );
 ````
 
