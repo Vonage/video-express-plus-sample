@@ -88,14 +88,7 @@ cd video-express-plus-sample
   cd Vanilla
   ```
 
-4. Add an environment variable with the npmjs token provided to you
-   (see the Requirements section above):
-
-   ```sh
-   export NPM_TOKEN=npm_QX0T.....vCX   # Replace with your token string
-   ```
-
-5. Install dependencies:
+4. Install dependencies:
 
   ```sh
   npm install
