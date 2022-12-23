@@ -46,7 +46,7 @@
     "dotenv": "^16.0.1",
     "express": "^4.17.2",
     "express-sslify": "^1.2.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "lit-element": "^3.2.0",
     "regenerator-runtime": "^0.13.9",
     "sample": "^0.0.2",
