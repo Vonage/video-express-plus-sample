@@ -2,9 +2,9 @@
 
 If you are looking for a Vonage Video API reference application, please refer to:
 
-Vonage Video React App — [Web reference application](https://github.com/Vonage/vonage-video-react-app)
-Vonage Video iOS App — [iOS reference application](https://github.com/Vonage/vonage-video-ios-app)
-Vonage Video Android App — [Android reference application](https://github.com/Vonage/vonage-video-android-app)
+- **Web (React)**: [Vonage Video React App](https://github.com/Vonage/vonage-video-react-app)
+- **iOS**: [Vonage Video iOS App](https://github.com/Vonage/vonage-video-ios-app)
+- **Android**: [Android reference application](https://github.com/Vonage/vonage-video-android-app)
 
 # Video Express Plus sample
 
