@@ -1,10 +1,12 @@
-:warning: This repository has been deprecated and is no longer maintained. :warning:
+<h1 style="color: red; text-align: center; margin-top: 2em; margin-bottom: 1em;">:warning: This repository has been deprecated and is no longer maintained. :warning:</h1>
 
 If you are looking for a Vonage Video API reference application, please refer to:
 
 - **Web (React)**: [Vonage Video React App](https://github.com/Vonage/vonage-video-react-app)
 - **iOS**: [Vonage Video iOS App](https://github.com/Vonage/vonage-video-ios-app)
 - **Android**: [Android reference application](https://github.com/Vonage/vonage-video-android-app)
+
+<h1 style="margin-top: 2em; margin-bottom: 1em;"></h1>
 
 # Video Express Plus sample
 
